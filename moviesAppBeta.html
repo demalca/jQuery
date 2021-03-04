@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Movies App</h1>
+    <form action="">
+      <input
+        type="text"
+        id="movie"
+        placeholder="Movie Title"
+        autocomplete="off"
+        required
+      />
+      <br />
+      <input
+        type="number"
+        id="rating"
+        min="0"
+        max="10"
+        step="0.5"
+        placeholder="Rating"
+        required
+      />
+      <br />
+      <input type="submit" id="submit" />
+    </form>
+
+    <ul></ul>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script>
+      // Add your code here!
+      console.log("Let's get ready to party with jQuery!");
+
+      $("form").on("submit", function (e) {
+        e.preventDefault();
+        let movie = $("#movie").val();
+        let rating = $("#rating").val();
+        $("ul").append(
+          "<li> Movie: " +
+            movie +
+            "   " +
+            "/ Rating: " +
+            rating +
+            " <input type='button' id='delete' value='X'></li>"
+        );
+        $("form").trigger("reset");
+      });
+
+      $("ul").on("click", "#delete", function () {
+        $(this).parent().remove();
+      });
+    </script>
+  </body>
+</html>
